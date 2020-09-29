@@ -5,6 +5,9 @@ const browsersync = require("browser-sync").create();
 const del = require("del");
 const gulp = require("gulp");
 const merge = require("merge-stream");
+var concat = require('gulp-concat');
+var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
 
 // BrowserSync
 function browserSync(done) {
@@ -25,6 +28,7 @@ function browserSyncReload(done) {
 
 // Clean vendor
 function clean() {
+  del(["./dist/"]);
   return del(["./vendor/"]);
 }
 
@@ -48,9 +52,24 @@ function watchFiles() {
   gulp.watch("./**/*.html", browserSyncReload);
 }
 
+//script paths
+var jsFiles = 'js/**/*.js',
+    jsDest = 'dist/scripts';
+
+function DistScripts() {
+      return gulp.src(jsFiles)
+          .pipe(concat('scripts.js'))
+          .pipe(gulp.dest(jsDest))
+          .pipe(rename('scripts.min.js'))
+          .pipe(uglify())
+          .pipe(gulp.dest(jsDest));
+  };
+
+
+
 // Define complex tasks
 const vendor = gulp.series(clean, modules);
-const build = gulp.series(vendor);
+const build = gulp.series(vendor,DistScripts);
 const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
 
 // Export tasks
