@@ -1,60 +1,60 @@
 //- carousel caption
 mixin carousel-caption(item)
-	.carousel-caption
-		unless !item.h1
-			h1 #{item.h1}
-		unless !item.p
-			p #{item.p}
-		unless !item.button
-			p
-				a.btn.btn-lg.btn-primary(href=item.button.url role="button") #{item.button.caption}
+  .carousel-caption
+    unless !item.h1
+      h1 #{item.h1}
+    unless !item.p
+      p #{item.p}
+    unless !item.button
+      p
+        a.btn.btn-lg.btn-primary(href=item.button.url role="button") #{item.button.caption}
 
 //- carousel
 mixin carousel(id,items)
-	.carousel.slide.carousel-dark(id="carousel-" + id ,data-bs-ride="carousel")
-		//- Indicators
-		.carousel-indicators
-			each item,index in items
-				if(index === 0)
-					button.active(type="button", data-bs-target="#carousel-" + id, data-bs-slide-to=index, aria-current="true", aria-label="Slide " + (index + 1))
-				else
-					button(type="button", data-bs-target="#carousel-" + id, data-bs-slide-to=index, aria-label="Slide " + (index + 1))
+  .carousel.slide.carousel-dark(id="carousel-" + id ,data-bs-ride="carousel")
+    //- Indicators
+    .carousel-indicators
+      each item,index in items
+        if(index === 0)
+          button.active(type="button", data-bs-target="#carousel-" + id, data-bs-slide-to=index, aria-current="true", aria-label="Slide " + (index + 1))
+        else
+          button(type="button", data-bs-target="#carousel-" + id, data-bs-slide-to=index, aria-label="Slide " + (index + 1))
 
 
-		//- Wrapper for slides
-		.carousel-inner()
-			each item,index in items
-				if(index === 0)
-					.carousel-item.active
-						.containter.text-center
-							h5
-								a(href=item.h target='_blank'  rel="noopener noreferrer" title=item.p )=item.p
-							.text-black=item.d
-							img.img-fluid(src=item.image title=item.h)
-							+carousel-caption(item)
-				else
-					.carousel-item
-						.containter.text-center
-							h5
-								a(href=item.h  target='_blank'  rel="noopener noreferrer" title=item.p )=item.p
-							.text-black=item.d
-							img.img-fluid(src=item.image title=item.h)
-							+carousel-caption(item)
+    //- Wrapper for slides
+    .carousel-inner()
+      each item,index in items
+        if(index === 0)
+          .carousel-item.active
+            .containter.text-center
+              h5
+                a(href=item.h target='_blank'  rel="noopener noreferrer" title=item.p )=item.p
+              .text-black=item.d
+              img.img-fluid(src=item.image title=item.h)
+              +carousel-caption(item)
+        else
+          .carousel-item
+            .containter.text-center
+              h5
+                a(href=item.h  target='_blank'  rel="noopener noreferrer" title=item.p )=item.p
+              .text-black=item.d
+              img.img-fluid(src=item.image title=item.h)
+              +carousel-caption(item)
 
-		//-  Controls
-		button.carousel-control-prev(data-bs-target="#carousel-" + id, data-bs-slide="prev", type="button")
-			span.carousel-control-prev-icon(aria-hidden="true")
-			span.visualy-hidden Previous
-		button.carousel-control-next(data-bs-target="#carousel-" + id, data-bs-slide="next", type="button")
-			span.carousel-control-next-icon(aria-hidden="true")
-			span.visualy-hidden Next
+    //-  Controls
+    button.carousel-control-prev(data-bs-target="#carousel-" + id, data-bs-slide="prev", type="button")
+      span.carousel-control-prev-icon(aria-hidden="true")
+      span.visualy-hidden Previous
+    button.carousel-control-next(data-bs-target="#carousel-" + id, data-bs-slide="next", type="button")
+      span.carousel-control-next-icon(aria-hidden="true")
+      span.visualy-hidden Next
 
 +carousel("Projects",[
-	{image:"assets/img/frogsfolly.png",
+  {image:"assets/img/frogsfolly.png",
     p:"Frogsfolly",
     d:" My first website, setup to share photos with my family but is now a 'Kitchen Sink' of demos and test ideas. The site is built with  Web Project Mechanics CMS.",
     h:"https://frogsfolly.com"},
-	{image:"assets/img/travelfrogsfolly.png",
+  {image:"assets/img/travelfrogsfolly.png",
     p:"Travel Frogsfolly",
     d:"A website with places we have traveld with a few pictures and descriptions of the highlights. The site is built with  Web Project Mechanics CMS",
     h:"https://travel.frogsfolly.com"},
