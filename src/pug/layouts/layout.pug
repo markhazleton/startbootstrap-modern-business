@@ -1,0 +1,24 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+
+    block pagehead
+
+    include ../includes/css.pug
+
+  body.d-flex.flex-column
+
+    main.flex-shrink-0
+
+      // Navigation
+      include ../includes/navbar.pug
+
+      block layout-content
+
+    // Footer
+    include ../includes/footer.pug
+
+    include ../includes/scripts.pug
