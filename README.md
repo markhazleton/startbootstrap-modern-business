@@ -10,17 +10,32 @@ Mark Hazleton is a passionate web developer and technology leader, dedicated to 
 
 - Responsive, mobile-first design with Bootstrap 5
 - Light/Dark mode toggle (Bootstrap 5 best practices)
-- Accessibility (a11y) best practices throughout
+- Interactive Theme Customizer (live color, font, border radius, exportable CSS)
+- Animated hero section with SVG wave
+- Animated counters/stats for business impact
+- Dynamic testimonials carousel (Bootstrap Carousel)
+- Accessibility widget (font size, contrast, dyslexia font)
 - SEO and social meta tags (Open Graph, Twitter)
 - Minified CSS/JS for performance
-- PWA support (manifest & service worker)
-- Modern pages: Home, About, Contact, Features, Testimonials, FAQ, Pricing, 404, Privacy, Terms, Accessibility
+- PWA support (manifest & service worker, installable)
+- Modern pages: Home, About, Contact, Features, Testimonials, FAQ, Pricing, 404, Privacy, Terms, Accessibility, Developer
 - Reusable Pug mixins for features, testimonials, CTAs
-- Automated build, lint, format, and test scripts
-- Sitemap and robots.txt for SEO
-- Social and legal links (Privacy, Terms) always up-to-date
+- All social and legal links always up-to-date
 - All social icons point to [markhazleton.com](https://markhazleton.com)
 - Contact page links directly to the [GitHub repository](https://github.com/markhazleton/startbootstrap-modern-business)
+- `/developer` page with copy-to-clipboard npm scripts
+- `/build-status.md` with demo badges for build and Lighthouse scores
+
+## Build Scripts & Automation
+
+- **npm run build**: Cleans, lints, builds Pug, SCSS, JS, assets, and minifies CSS/JS for production
+- **npm run lint/format/fix**: Enforces code quality and style
+- **npm test**: Runs build and automated tests (Mocha)
+- **Prebuild hooks**: Linting runs before every build
+- **Minification**: CSS (cssnano, postcss-cli) and JS (terser) for fast load times
+- **PWA**: Manifest and service worker generated and registered automatically
+- **SEO**: robots.txt and sitemap.xml generated for search engines
+- **CI/CD ready**: Scripts are designed for easy integration with GitHub Actions or other CI tools
 
 ## Getting Started
 
