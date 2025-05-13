@@ -36,20 +36,20 @@
         "url": "https://github.com/StartBootstrap/startbootstrap-modern-business.git"
     },
     "dependencies": {
-        "bootstrap": "5.3.3",
-        "bootstrap-icons": "^1.11.3",
+        "bootstrap": "5.3.6",
+        "bootstrap-icons": "^1.13.1",
         "ncp": "^2.0.0"
     },
     "devDependencies": {
-        "autoprefixer": "10.4.20",
-        "browser-sync": "3.0.3",
-        "chokidar": "4.0.1",
-        "concurrently": "9.0.1",
-        "postcss": "8.4.47",
-        "prettier": "3.3.3",
+        "autoprefixer": "10.4.21",
+        "browser-sync": "3.0.4",
+        "chokidar": "4.0.3",
+        "concurrently": "9.1.2",
+        "postcss": "8.5.3",
+        "prettier": "3.5.3",
         "pug": "3.0.3",
-        "sass": "1.79.4",
-        "shelljs": "0.8.5",
+        "sass": "1.88.0",
+        "shelljs": "0.10.0",
         "upath": "2.0.1"
     }
 }
