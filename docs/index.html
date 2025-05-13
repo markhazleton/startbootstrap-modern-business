@@ -9,12 +9,12 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap and Bootstrap icons)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles.min.css" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
             <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation" aria-label="Main navigation">
                 <div class="container px-5">
                     <a class="navbar-brand" href="index.html">Mark Hazleton</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -39,6 +39,8 @@
                                 </ul>
                             </li>
                         </ul>
+                        <!-- Light/Dark mode toggle-->
+                        <button class="btn btn-outline-secondary ms-2" id="theme-toggle" type="button" aria-label="Toggle light/dark mode"><i class="bi bi-moon"></i></button>
                     </div>
                 </div>
             </nav>
@@ -60,6 +62,18 @@
                     </div>
                 </div>
             </header>
+            <!-- Animated Hero Section-->
+            <div class="hero-section bg-primary text-white text-center py-5 position-relative overflow-hidden">
+                <div class="container">
+                    <h1 class="display-3 fw-bold mb-3">Animate Your Business</h1>
+                    <p class="lead mb-4">The best Bootstrap 5 demo for small business, by Mark Hazleton</p>
+                    <a class="btn btn-light btn-lg" href="/features.html">Explore Features</a>
+                </div>
+                <svg class="position-absolute bottom-0 start-0 w-100" style="height: 80px"><use xlink:href="#wave"></use></svg>
+            </div>
+            <svg style="display: none">
+                <symbol id="wave" viewBox="0 0 1440 80"><path fill="currentColor" d="M0,32L48,53.3C96,75,192,117,288,117.3C384,117,480,75,576,74.7C672,75,768,117,864,133.3C960,149,1056,139,1152,117.3C1248,96,1344,64,1392,48L1440,32V80H0Z"></path></symbol>
+            </svg>
             <!-- Features section-->
             <section class="py-5" id="features">
                 <div class="container px-5 my-5">
@@ -204,6 +218,25 @@
                             </div>
                         </div>
                     </aside>
+                    <!-- Animated Counters/Stats-->
+                    <div class="row text-center my-5">
+                        <div class="col-md-3">
+                            <div class="counter display-4 text-primary" data-count="10">0</div>
+                            <p>Years in Business</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="counter display-4 text-primary" data-count="500">0</div>
+                            <p>Happy Clients</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="counter display-4 text-primary" data-count="1200">0</div>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="counter display-4 text-primary" data-count="24/7">0</div>
+                            <p>Support</p>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
@@ -213,11 +246,17 @@
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                     <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Mark Hazleton 2025</div></div>
                     <div class="col-auto">
-                        <a class="link-light small" href="#!">Privacy</a>
+                        <a class="link-light small" href="/privacy.html">Privacy Policy</a>
                         <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Terms</a>
+                        <a class="link-light small" href="/terms.html">Terms of Service</a>
                         <span class="text-white mx-1">&middot;</span>
                         <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                    <div class="col-auto">
+                        <a href="https://markhazleton.com" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+                        <a href="https://markhazleton.com" target="_blank" rel="noopener"><i class="bi bi-twitter"></i></a>
+                        <a href="https://markhazleton.com" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://markhazleton.com" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -225,6 +264,105 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="js/scripts.min.js"></script>
+        <script>
+            // Bootstrap 5 light/dark mode toggle
+            (() => {
+                const toggle = document.getElementById('theme-toggle');
+                const icon = toggle?.querySelector('i');
+                const setTheme = (theme) => {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                    localStorage.setItem('bs-theme', theme);
+                    if (icon) {
+                        icon.className = theme === 'dark' ? 'bi bi-sun' : 'bi bi-moon';
+                    }
+                };
+                const stored = localStorage.getItem('bs-theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                setTheme(stored || (prefersDark ? 'dark' : 'light'));
+                toggle?.addEventListener('click', () => {
+                    const current = document.documentElement.getAttribute('data-bs-theme');
+                    setTheme(current === 'dark' ? 'light' : 'dark');
+                });
+            })();
+        </script>
+        <script>
+            // Theme Customizer logic
+            (() => {
+                const customizer = document.querySelector('.theme-customizer');
+                const colorPicker = document.getElementById('colorPicker');
+                const fontSelect = document.getElementById('fontSelect');
+                const radiusRange = document.getElementById('radiusRange');
+                const exportBtn = document.getElementById('exportTheme');
+                const closeBtn = document.getElementById('closeCustomizer');
+                if (!customizer) return;
+                // Apply theme
+                function applyTheme() {
+                    document.documentElement.style.setProperty('--bs-primary', colorPicker.value);
+                    document.body.style.fontFamily = fontSelect.value;
+                    document.documentElement.style.setProperty('--bs-border-radius', radiusRange.value + 'rem');
+                }
+                colorPicker?.addEventListener('input', applyTheme);
+                fontSelect?.addEventListener('change', applyTheme);
+                radiusRange?.addEventListener('input', applyTheme);
+                exportBtn?.addEventListener('click', () => {
+                    const css = `:root { --bs-primary: ${colorPicker.value}; --bs-border-radius: ${radiusRange.value}rem; font-family: ${fontSelect.value}; }`;
+                    const blob = new Blob([css], { type: 'text/css' });
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = 'custom-theme.css';
+                    a.click();
+                });
+                closeBtn?.addEventListener('click', () => (customizer.style.display = 'none'));
+                // Show on load
+                customizer.style.display = 'block';
+                applyTheme();
+            })();
+        </script>
+        <script>
+            // Animated counters
+            document.querySelectorAll('.counter').forEach((counter) => {
+                const update = () => {
+                    const target = counter.getAttribute('data-count');
+                    if (target.includes('/')) {
+                        counter.textContent = target;
+                        return;
+                    }
+                    const count = +counter.textContent;
+                    const inc = Math.ceil((+target - count) / 10);
+                    if (count < target) {
+                        counter.textContent = count + inc;
+                        setTimeout(update, 40);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                update();
+            });
+        </script>
+        <script>
+            // Accessibility widget logic
+            (() => {
+                const inc = document.getElementById('fontInc');
+                const dec = document.getElementById('fontDec');
+                const contrast = document.getElementById('contrast');
+                const dyslexia = document.getElementById('dyslexia');
+                let fontSize = 1;
+                inc?.addEventListener('click', () => {
+                    fontSize += 0.1;
+                    document.body.style.fontSize = fontSize + 'em';
+                });
+                dec?.addEventListener('click', () => {
+                    fontSize = Math.max(0.8, fontSize - 0.1);
+                    document.body.style.fontSize = fontSize + 'em';
+                });
+                contrast?.addEventListener('click', () => {
+                    document.body.classList.toggle('high-contrast');
+                });
+                dyslexia?.addEventListener('click', () => {
+                    document.body.classList.toggle('dyslexia-font');
+                });
+            })();
+        </script>
     </body>
 </html>

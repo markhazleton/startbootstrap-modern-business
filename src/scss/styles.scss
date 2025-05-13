@@ -27,3 +27,16 @@ html {
     background-repeat: no-repeat;
     min-height: 15rem;
 }
+
+.high-contrast {
+  background: #000 !important;
+  color: #fff !important;
+}
+.high-contrast a, .high-contrast .btn {
+  color: #fff !important;
+  background: #222 !important;
+  border-color: #fff !important;
+}
+.dyslexia-font {
+  font-family: 'OpenDyslexic', Arial, sans-serif !important;
+}

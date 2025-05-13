@@ -1,0 +1,39 @@
+extends layouts/layout
+
+block pagehead
+  title Developer Scripts | Modern Business
+
+block layout-content
+  .container.py-5
+    h2.mb-4.text-center Developer npm Scripts
+    p.lead Explore and copy all npm scripts used in this project.
+    ul.list-group.mb-4
+      li.list-group-item d-flex justify-content-between align-items-center
+        code prebuild
+        button.btn.btn-outline-secondary.btn-sm(onclick='copyScript(`npm run prebuild`)') Copy
+      li.list-group-item d-flex justify-content-between align-items-center
+        code lint
+        button.btn.btn-outline-secondary.btn-sm(onclick='copyScript(`npm run lint`)') Copy
+      li.list-group-item d-flex justify-content-between align-items-center
+        code format
+        button.btn.btn-outline-secondary.btn-sm(onclick='copyScript(`npm run format`)') Copy
+      li.list-group-item d-flex justify-content-between align-items-center
+        code fix
+        button.btn.btn-outline-secondary.btn-sm(onclick='copyScript(`npm run fix`)') Copy
+      li.list-group-item d-flex justify-content-between align-items-center
+        code test
+        button.btn.btn-outline-secondary.btn-sm(onclick='copyScript(`npm test`)') Copy
+      li.list-group-item d-flex justify-content-between align-items-center
+        code build
+        button.btn.btn-outline-secondary.btn-sm(onclick='copyScript(`npm run build`)') Copy
+      li.list-group-item d-flex justify-content-between align-items-center
+        code start
+        button.btn.btn-outline-secondary.btn-sm(onclick='copyScript(`npm start`)') Copy
+      li.list-group-item d-flex justify-content-between align-items-center
+        code start:debug
+        button.btn.btn-outline-secondary.btn-sm(onclick='copyScript(`npm run start:debug`)') Copy
+    script.
+      function copyScript(cmd) {
+        navigator.clipboard.writeText(cmd);
+        alert('Copied: ' + cmd);
+      }

@@ -1,20 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="description" content="Modern Business is a world-class Bootstrap 5 demo site for small businesses, featuring responsive design, accessibility, and best practices." />
+        <meta name="keywords" content="bootstrap, business, demo, responsive, pug, nodejs, modern, template" />
+        <meta property="og:title" content="Modern Business Demo" />
+        <meta property="og:description" content="A world-class Bootstrap 5 demo site for small businesses." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yourdomain.com/" />
+        <meta property="og:image" content="/assets/favicon.ico" />
         <title>Project Mechanics - About</title>
         <meta name="description" content="Project Mechanics - About" />
         <meta name="author" content="Mark Hazleton" />
         <link rel="canonical" href="https://markhazleton.com/projectmechanics/about.html" />
         <!-- Core theme CSS (includes Bootstrap and Bootstrap icons)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles.min.css" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column">
+        <!-- Pug mixins for reusable UI components-->
+        <!-- Interactive Theme Customizer (Bootstrap 5)-->
+        <!-- Place this in a new file for modularity-->
         <main class="flex-shrink-0">
             <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation" aria-label="Main navigation">
                 <div class="container px-5">
                     <a class="navbar-brand" href="index.html">Mark Hazleton</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -39,9 +50,26 @@
                                 </ul>
                             </li>
                         </ul>
+                        <!-- Light/Dark mode toggle-->
+                        <button class="btn btn-outline-secondary ms-2" id="theme-toggle" type="button" aria-label="Toggle light/dark mode"><i class="bi bi-moon"></i></button>
                     </div>
                 </div>
             </nav>
+            <div class="theme-customizer position-fixed top-0 end-0 bg-light border rounded shadow p-3 mt-4 me-4" style="z-index: 1080; width: 320px">
+                <h5 class="mb-3">Theme Customizer</h5>
+                <label class="form-label" for="colorPicker">Primary Color</label>
+                <input class="form-control" id="colorPicker" type="color" value="#0d6efd" />
+                <label class="form-label mt-3" for="fontSelect">Font Family</label>
+                <select class="form-select" id="fontSelect">
+                    <option value="system-ui">System Default</option>
+                    <option value="Roboto, sans-serif">Roboto</option>
+                    <option value="Georgia, serif">Georgia</option>
+                </select>
+                <label class="form-label mt-3" for="radiusRange">Border Radius</label>
+                <input class="form-range" id="radiusRange" type="range" min="0" max="2" step="0.1" value="0.5" />
+                <button class="btn btn-primary mt-3" id="exportTheme">Export Theme</button>
+                <button class="btn btn-link text-danger float-end mt-2" id="closeCustomizer" type="button">Close</button>
+            </div>
             <!-- Header-->
             <header class="py-5">
                 <div class="container px-5">
@@ -119,6 +147,13 @@
                     </div>
                 </div>
             </section>
+            <div class="accessibility-widget position-fixed bottom-0 end-0 bg-light border rounded shadow p-3 mb-4 me-4" style="z-index: 1080; width: 220px">
+                <h6 class="mb-2">Accessibility</h6>
+                <button class="btn btn-outline-secondary btn-sm mb-2" id="fontInc">Increase Font</button>
+                <button class="btn btn-outline-secondary btn-sm mb-2" id="fontDec">Decrease Font</button>
+                <button class="btn btn-outline-secondary btn-sm mb-2" id="contrast">High Contrast</button>
+                <button class="btn btn-outline-secondary btn-sm mb-2" id="dyslexia">Dyslexia Font</button>
+            </div>
         </main>
         <!-- Footer-->
         <footer class="bg-dark py-4 mt-auto">
@@ -126,11 +161,17 @@
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                     <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Mark Hazleton 2025</div></div>
                     <div class="col-auto">
-                        <a class="link-light small" href="#!">Privacy</a>
+                        <a class="link-light small" href="/privacy.html">Privacy Policy</a>
                         <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Terms</a>
+                        <a class="link-light small" href="/terms.html">Terms of Service</a>
                         <span class="text-white mx-1">&middot;</span>
                         <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                    <div class="col-auto">
+                        <a href="https://markhazleton.com" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+                        <a href="https://markhazleton.com" target="_blank" rel="noopener"><i class="bi bi-twitter"></i></a>
+                        <a href="https://markhazleton.com" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://markhazleton.com" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -138,6 +179,112 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="js/scripts.min.js"></script>
+        <script>
+            // Bootstrap 5 light/dark mode toggle
+            (() => {
+                const toggle = document.getElementById('theme-toggle');
+                const icon = toggle?.querySelector('i');
+                const setTheme = (theme) => {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                    localStorage.setItem('bs-theme', theme);
+                    if (icon) {
+                        icon.className = theme === 'dark' ? 'bi bi-sun' : 'bi bi-moon';
+                    }
+                };
+                const stored = localStorage.getItem('bs-theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                setTheme(stored || (prefersDark ? 'dark' : 'light'));
+                toggle?.addEventListener('click', () => {
+                    const current = document.documentElement.getAttribute('data-bs-theme');
+                    setTheme(current === 'dark' ? 'light' : 'dark');
+                });
+            })();
+        </script>
+        <script>
+            // Theme Customizer logic
+            (() => {
+                const customizer = document.querySelector('.theme-customizer');
+                const colorPicker = document.getElementById('colorPicker');
+                const fontSelect = document.getElementById('fontSelect');
+                const radiusRange = document.getElementById('radiusRange');
+                const exportBtn = document.getElementById('exportTheme');
+                const closeBtn = document.getElementById('closeCustomizer');
+                if (!customizer) return;
+                // Apply theme
+                function applyTheme() {
+                    document.documentElement.style.setProperty('--bs-primary', colorPicker.value);
+                    document.body.style.fontFamily = fontSelect.value;
+                    document.documentElement.style.setProperty('--bs-border-radius', radiusRange.value + 'rem');
+                }
+                colorPicker?.addEventListener('input', applyTheme);
+                fontSelect?.addEventListener('change', applyTheme);
+                radiusRange?.addEventListener('input', applyTheme);
+                exportBtn?.addEventListener('click', () => {
+                    const css = `:root { --bs-primary: ${colorPicker.value}; --bs-border-radius: ${radiusRange.value}rem; font-family: ${fontSelect.value}; }`;
+                    const blob = new Blob([css], { type: 'text/css' });
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = 'custom-theme.css';
+                    a.click();
+                });
+                closeBtn?.addEventListener('click', () => (customizer.style.display = 'none'));
+                // Show on load
+                customizer.style.display = 'block';
+                applyTheme();
+            })();
+        </script>
+        <script>
+            // Animated counters
+            document.querySelectorAll('.counter').forEach((counter) => {
+                const update = () => {
+                    const target = counter.getAttribute('data-count');
+                    if (target.includes('/')) {
+                        counter.textContent = target;
+                        return;
+                    }
+                    const count = +counter.textContent;
+                    const inc = Math.ceil((+target - count) / 10);
+                    if (count < target) {
+                        counter.textContent = count + inc;
+                        setTimeout(update, 40);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                update();
+            });
+        </script>
+        <script>
+            // Accessibility widget logic
+            (() => {
+                const inc = document.getElementById('fontInc');
+                const dec = document.getElementById('fontDec');
+                const contrast = document.getElementById('contrast');
+                const dyslexia = document.getElementById('dyslexia');
+                let fontSize = 1;
+                inc?.addEventListener('click', () => {
+                    fontSize += 0.1;
+                    document.body.style.fontSize = fontSize + 'em';
+                });
+                dec?.addEventListener('click', () => {
+                    fontSize = Math.max(0.8, fontSize - 0.1);
+                    document.body.style.fontSize = fontSize + 'em';
+                });
+                contrast?.addEventListener('click', () => {
+                    document.body.classList.toggle('high-contrast');
+                });
+                dyslexia?.addEventListener('click', () => {
+                    document.body.classList.toggle('dyslexia-font');
+                });
+            })();
+        </script>
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function () {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
     </body>
 </html>

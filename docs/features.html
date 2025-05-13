@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Modern Business - Start Bootstrap Template</title>
-        <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="description" content="Modern Business is a world-class Bootstrap 5 demo site for small businesses, featuring responsive design, accessibility, and best practices." />
+        <meta name="keywords" content="bootstrap, business, demo, responsive, pug, nodejs, modern, template" />
+        <meta property="og:title" content="Modern Business Demo" />
+        <meta property="og:description" content="A world-class Bootstrap 5 demo site for small businesses." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yourdomain.com/" />
+        <meta property="og:image" content="/assets/favicon.ico" />
+        <title>Features | Modern Business</title>
         <!-- Core theme CSS (includes Bootstrap and Bootstrap icons)-->
         <link href="css/styles.min.css" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column">
+        <!-- Pug mixins for reusable UI components-->
+        <!-- Interactive Theme Customizer (Bootstrap 5)-->
+        <!-- Place this in a new file for modularity-->
         <main class="flex-shrink-0">
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation" aria-label="Main navigation">
@@ -44,90 +52,60 @@
                     </div>
                 </div>
             </nav>
-            <!-- Page Content-->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <div class="row gx-5">
-                        <div class="col-lg-3">
-                            <div class="d-flex align-items-center mt-lg-5 mb-4">
-                                <img class="img-fluid rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
-                                <div class="ms-3">
-                                    <div class="fw-bold">Valerie Luna</div>
-                                    <div class="text-muted">News, Business</div>
-                                </div>
+            <div class="theme-customizer position-fixed top-0 end-0 bg-light border rounded shadow p-3 mt-4 me-4" style="z-index: 1080; width: 320px">
+                <h5 class="mb-3">Theme Customizer</h5>
+                <label class="form-label" for="colorPicker">Primary Color</label>
+                <input class="form-control" id="colorPicker" type="color" value="#0d6efd" />
+                <label class="form-label mt-3" for="fontSelect">Font Family</label>
+                <select class="form-select" id="fontSelect">
+                    <option value="system-ui">System Default</option>
+                    <option value="Roboto, sans-serif">Roboto</option>
+                    <option value="Georgia, serif">Georgia</option>
+                </select>
+                <label class="form-label mt-3" for="radiusRange">Border Radius</label>
+                <input class="form-range" id="radiusRange" type="range" min="0" max="2" step="0.1" value="0.5" />
+                <button class="btn btn-primary mt-3" id="exportTheme">Export Theme</button>
+                <button class="btn btn-link text-danger float-end mt-2" id="closeCustomizer" type="button">Close</button>
+            </div>
+            <div class="container py-5">
+                <h2 class="mb-4 text-center">Features</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="feature d-flex align-items-center mb-4">
+                            <i class="bi bi-star-fill me-3 display-5 text-primary"></i>
+                            <div class="feature-body">
+                                <h5 class="mb-1">Quality</h5>
+                                <p class="mb-0">We deliver the best quality products and services.</p>
                             </div>
                         </div>
-                        <div class="col-lg-9">
-                            <!-- Post content-->
-                            <article>
-                                <!-- Post header-->
-                                <header class="mb-4">
-                                    <!-- Post title-->
-                                    <h1 class="fw-bolder mb-1">Welcome to Blog Post!</h1>
-                                    <!-- Post meta content-->
-                                    <div class="text-muted fst-italic mb-2">January 1, 2025</div>
-                                    <!-- Post categories-->
-                                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
-                                </header>
-                                <!-- Preview image figure-->
-                                <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
-                                <!-- Post content-->
-                                <section class="mb-5">
-                                    <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
-                                    <p class="fs-5 mb-4">The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                                    <p class="fs-5 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
-                                    <h2 class="fw-bolder mb-4 mt-5">I have odd cosmic thoughts every day</h2>
-                                    <p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic thoughts every day and I realized I could hold them to myself or share them with people who might be interested.</p>
-                                    <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
-                                </section>
-                            </article>
-                            <!-- Comments section-->
-                            <section>
-                                <div class="card bg-light">
-                                    <div class="card-body">
-                                        <!-- Comment form-->
-                                        <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
-                                        <!-- Comment with nested comments-->
-                                        <div class="d-flex mb-4">
-                                            <!-- Parent comment-->
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                            <div class="ms-3">
-                                                <div class="fw-bold">Commenter Name</div>
-                                                If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
-                                                <!-- Child comment 1-->
-                                                <div class="d-flex mt-4">
-                                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                                    <div class="ms-3">
-                                                        <div class="fw-bold">Commenter Name</div>
-                                                        And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
-                                                    </div>
-                                                </div>
-                                                <!-- Child comment 2-->
-                                                <div class="d-flex mt-4">
-                                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                                    <div class="ms-3">
-                                                        <div class="fw-bold">Commenter Name</div>
-                                                        When you put money directly to a problem, it makes a good headline.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single comment-->
-                                        <div class="d-flex">
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                            <div class="ms-3">
-                                                <div class="fw-bold">Commenter Name</div>
-                                                When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature d-flex align-items-center mb-4">
+                            <i class="bi bi-lightning-fill me-3 display-5 text-primary"></i>
+                            <div class="feature-body">
+                                <h5 class="mb-1">Speed</h5>
+                                <p class="mb-0">Fast and reliable service for all our clients.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature d-flex align-items-center mb-4">
+                            <i class="bi bi-heart-fill me-3 display-5 text-primary"></i>
+                            <div class="feature-body">
+                                <h5 class="mb-1">Care</h5>
+                                <p class="mb-0">We care about our customers and their success.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+            <div class="accessibility-widget position-fixed bottom-0 end-0 bg-light border rounded shadow p-3 mb-4 me-4" style="z-index: 1080; width: 220px">
+                <h6 class="mb-2">Accessibility</h6>
+                <button class="btn btn-outline-secondary btn-sm mb-2" id="fontInc">Increase Font</button>
+                <button class="btn btn-outline-secondary btn-sm mb-2" id="fontDec">Decrease Font</button>
+                <button class="btn btn-outline-secondary btn-sm mb-2" id="contrast">High Contrast</button>
+                <button class="btn btn-outline-secondary btn-sm mb-2" id="dyslexia">Dyslexia Font</button>
+            </div>
         </main>
         <!-- Footer-->
         <footer class="bg-dark py-4 mt-auto">
@@ -252,6 +230,13 @@
                     document.body.classList.toggle('dyslexia-font');
                 });
             })();
+        </script>
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function () {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
         </script>
     </body>
 </html>

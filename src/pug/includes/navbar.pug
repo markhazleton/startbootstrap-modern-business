@@ -1,4 +1,4 @@
-nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark(role='navigation', aria-label='Main navigation')
   .container.px-5
     a.navbar-brand(href='index.html') Mark Hazleton
     button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
@@ -29,3 +29,6 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
               a.dropdown-item(href='portfolio-overview.html') Portfolio Overview
             li
               a.dropdown-item(href='portfolio-item.html') Portfolio Item
+      // Light/Dark mode toggle
+      button#theme-toggle.btn.btn-outline-secondary.ms-2(type='button', aria-label='Toggle light/dark mode')
+        i.bi.bi-moon

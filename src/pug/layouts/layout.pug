@@ -1,9 +1,17 @@
 doctype html
-html(lang='en')
+html(lang='en' data-bs-theme='light')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+    link(rel='manifest', href='/manifest.json')
+    meta(name='description', content='Modern Business is a world-class Bootstrap 5 demo site for small businesses, featuring responsive design, accessibility, and best practices.')
+    meta(name='keywords', content='bootstrap, business, demo, responsive, pug, nodejs, modern, template')
+    meta(property='og:title', content='Modern Business Demo')
+    meta(property='og:description', content='A world-class Bootstrap 5 demo site for small businesses.')
+    meta(property='og:type', content='website')
+    meta(property='og:url', content='https://yourdomain.com/')
+    meta(property='og:image', content='/assets/favicon.ico')
 
     block pagehead
 
@@ -11,14 +19,33 @@ html(lang='en')
 
   body.d-flex.flex-column
 
+    include ../includes/mixins.pug
+    include ../includes/theme-customizer.pug
+
     main.flex-shrink-0
 
       // Navigation
       include ../includes/navbar.pug
 
+      +themeCustomizer()
+
       block layout-content
+
+      .accessibility-widget.position-fixed.bottom-0.end-0.bg-light.border.rounded.shadow.p-3.mb-4.me-4(style='z-index: 1080; width: 220px;')
+        h6.mb-2 Accessibility
+        button.btn.btn-outline-secondary.btn-sm.mb-2#fontInc Increase Font
+        button.btn.btn-outline-secondary.btn-sm.mb-2#fontDec Decrease Font
+        button.btn.btn-outline-secondary.btn-sm.mb-2#contrast High Contrast
+        button.btn.btn-outline-secondary.btn-sm.mb-2#dyslexia Dyslexia Font
 
     // Footer
     include ../includes/footer.pug
 
     include ../includes/scripts.pug
+
+    script.
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }

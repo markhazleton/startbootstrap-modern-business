@@ -36,6 +36,18 @@ html(lang='en')
             .col-xl-5.col-xxl-6.d-none.d-xl-block.text-center
               img.img-fluid.rounded-3.my-5(src='https://dummyimage.com/600x400/343a40/6c757d', alt='...')
 
+      // Animated Hero Section
+      .hero-section.bg-primary.text-white.text-center.py-5.position-relative.overflow-hidden
+        .container
+          h1.display-3.fw-bold.mb-3 Animate Your Business
+          p.lead.mb-4 The best Bootstrap 5 demo for small business, by Mark Hazleton
+          a.btn.btn-light.btn-lg(href='/features.html') Explore Features
+        svg.position-absolute.bottom-0.start-0.w-100(style='height: 80px;')
+          use(xlink:href='#wave')
+      svg(style='display:none;')
+        symbol#wave(viewBox='0 0 1440 80')
+          path(fill='currentColor', d='M0,32L48,53.3C96,75,192,117,288,117.3C384,117,480,75,576,74.7C672,75,768,117,864,133.3C960,149,1056,139,1152,117.3C1248,96,1344,64,1392,48L1440,32V80H0Z')
+
       // Features section
       section#features.py-5
         .container.px-5.my-5
@@ -152,6 +164,21 @@ html(lang='en')
                   input.form-control(type='text', placeholder='Email address...', aria-label='Email address...', aria-describedby='button-newsletter')
                   button#button-newsletter.btn.btn-outline-light(type='button') Sign up
                 .small.text-white-50 We care about privacy, and will never share your data.
+
+          // Animated Counters/Stats
+          .row.text-center.my-5
+            .col-md-3
+              .counter.display-4.text-primary(data-count='10') 0
+              p Years in Business
+            .col-md-3
+              .counter.display-4.text-primary(data-count='500') 0
+              p Happy Clients
+            .col-md-3
+              .counter.display-4.text-primary(data-count='1200') 0
+              p Projects Completed
+            .col-md-3
+              .counter.display-4.text-primary(data-count='24/7') 0
+              p Support
 
     // Footer
     include includes/footer.pug

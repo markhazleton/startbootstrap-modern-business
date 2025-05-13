@@ -1,0 +1,16 @@
+// Interactive Theme Customizer (Bootstrap 5)
+// Place this in a new file for modularity
+mixin themeCustomizer()
+  .theme-customizer.position-fixed.top-0.end-0.bg-light.border.rounded.shadow.p-3.mt-4.me-4(style='z-index: 1080; width: 320px;')
+    h5.mb-3 Theme Customizer
+    label.form-label(for='colorPicker') Primary Color
+    input#colorPicker.form-control(type='color', value='#0d6efd')
+    label.form-label.mt-3(for='fontSelect') Font Family
+    select#fontSelect.form-select
+      option(value='system-ui') System Default
+      option(value='Roboto, sans-serif') Roboto
+      option(value='Georgia, serif') Georgia
+    label.form-label.mt-3(for='radiusRange') Border Radius
+    input#radiusRange.form-range(type='range', min='0', max='2', step='0.1', value='0.5')
+    button#exportTheme.btn.btn-primary.mt-3 Export Theme
+    button#closeCustomizer.btn.btn-link.text-danger.float-end.mt-2(type='button') Close

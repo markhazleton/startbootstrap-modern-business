@@ -1,84 +1,58 @@
-# [Start Bootstrap - Modern Business](https://startbootstrap.com/template/modern-business/)
+# Modern Business - Bootstrap 5 Demo
 
-[Modern Business](https://startbootstrap.com/template/modern-business/) is a multipurpose, full website template for [Bootstrap](https://getbootstrap.com/) created by [Start Bootstrap](https://startbootstrap.com/). This template includes 17 unique HTML pages and a working PHP contact form.
+A world-class demonstration site for small businesses, built and maintained by [Mark Hazleton](https://markhazleton.com), showcasing the best of Bootstrap 5, Pug, and Node.js build automation.
 
-## Preview
+## About Mark Hazleton
 
-[![Modern Business Preview](https://assets.startbootstrap.com/img/screenshots/templates/modern-business.png)](https://startbootstrap.github.io/startbootstrap-modern-business/)
+Mark Hazleton is a passionate web developer and technology leader, dedicated to building accessible, high-performance, and beautiful web experiences. This project is a testament to his commitment to modern web standards, open source, and the small business community.
 
-**[View Live Preview](https://startbootstrap.github.io/startbootstrap-modern-business/)**
+## Features
 
-## Status
+- Responsive, mobile-first design with Bootstrap 5
+- Light/Dark mode toggle (Bootstrap 5 best practices)
+- Accessibility (a11y) best practices throughout
+- SEO and social meta tags (Open Graph, Twitter)
+- Minified CSS/JS for performance
+- PWA support (manifest & service worker)
+- Modern pages: Home, About, Contact, Features, Testimonials, FAQ, Pricing, 404, Privacy, Terms, Accessibility
+- Reusable Pug mixins for features, testimonials, CTAs
+- Automated build, lint, format, and test scripts
+- Sitemap and robots.txt for SEO
+- Social and legal links (Privacy, Terms) always up-to-date
+- All social icons point to [markhazleton.com](https://markhazleton.com)
+- Contact page links directly to the [GitHub repository](https://github.com/markhazleton/startbootstrap-modern-business)
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/StartBootstrap/startbootstrap-modern-business/master/LICENSE)
-[![npm version](https://img.shields.io/npm/v/startbootstrap-modern-business.svg)](https://www.npmjs.com/package/startbootstrap-modern-business)
-[![dependencies Status](https://david-dm.org/StartBootstrap/startbootstrap-modern-business/status.svg)](https://david-dm.org/StartBootstrap/startbootstrap-modern-business)
-[![devDependencies Status](https://david-dm.org/StartBootstrap/startbootstrap-modern-business/dev-status.svg)](https://david-dm.org/StartBootstrap/startbootstrap-modern-business?type=dev)
+## Getting Started
 
-## Download and Installation
+```sh
+npm install
+npm run build
+npm start
+```
 
-To begin using this template, choose one of the following options to get started:
+## Light/Dark Mode
 
-* [Download the latest release on Start Bootstrap](https://startbootstrap.com/template/modern-business/)
-* Install via npm: `npm i startbootstrap-modern-business`
-* Clone the repo: `git clone https://github.com/StartBootstrap/startbootstrap-modern-business.git`
-* [Fork, Clone, or Download on GitHub](https://github.com/StartBootstrap/startbootstrap-modern-business)
+- Toggle in the navbar
+- Remembers user preference
+- Uses Bootstrap 5's `data-bs-theme` for best compatibility
 
-## Usage
+## Testing
 
-### Basic Usage
+```sh
+npm test
+```
 
-After downloading, simply edit the HTML and CSS files included with the `docs` directory. These are the only files you need to worry about, you can ignore everything else! To preview the changes you make to the code, you can open the `index.html` file in your web browser.
+## Deployment
 
-### Advanced Usage
+- Output is in the `docs/` folder (ready for static hosting)
+- Includes PWA manifest and service worker
+- SEO files: `robots.txt`, `sitemap.xml`
 
-Clone the source files of the theme and navigate into the theme's root directory. Run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `package.json` file to see which scripts are included.
+## Contributing
 
-#### npm Scripts
+- PRs welcome! Please lint and test before submitting.
+- Built with ❤️ by Mark Hazleton
 
-* `npm run build` builds the project - this builds assets, HTML, JS, and CSS into `docs`
-* `npm run build:assets` copies the files in the `src/assets/` directory into `docs`
-* `npm run build:pug` compiles the Pug located in the `src/pug/` directory into `docs`
-* `npm run build:scripts` brings the `src/js/scripts.js` file into `docs`
-* `npm run build:scss` compiles the SCSS files located in the `src/scss/` directory into `docs`
-* `npm run clean` deletes the `docs` directory to prepare for rebuilding the project
-* `npm run start:debug` runs the project in debug mode
-* `npm start` or `npm run start` runs the project, launches a live preview in your default browser, and watches for changes made to files in `src`
+## License
 
-You must have npm installed in order to use this build environment.
-
-### Contact Form
-
-The contact form available with this theme is prebuilt to use [SB Forms](https://startbootstrap.com/solution/contact-forms).
-SB Forms is a simple form solution for adding functional forms to your theme. Since this theme is prebuilt using our
-SB Forms markup, all you need to do is sign up for [SB Forms on Start Bootstrap](https://startbootstrap.com/solution/contact-forms).
-
-After signing up you will need to set the domain name your form will be used on, and you will then see your
-access key. Copy this and paste it into the `data-sb-form-api-token='API_TOKEN'` data attribute in place of
-`API_TOKEN`. That's it! Your forms will be up and running!
-
-If you aren't using SB Forms, simply delete the custom data attributes from the form, and remove the link above the
-closing `</body>` tag to SB Forms.
-
-## Bugs and Issues
-
-Have a bug or an issue with this template? [Open a new issue](https://github.com/StartBootstrap/startbootstrap-modern-business/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](https://startbootstrap.com/template/modern-business/).
-
-## About
-
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
-
-* <https://startbootstrap.com>
-* <https://twitter.com/SBootstrap>
-
-Start Bootstrap was created by and is maintained by **[David Miller](https://davidmiller.io/)**.
-
-* <https://davidmiller.io>
-* <https://twitter.com/davidmillerhere>
-* <https://github.com/davidtmiller>
-
-Start Bootstrap is based on the [Bootstrap](https://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
-
-## Copyright and License
-
-Copyright 2013-2022 Start Bootstrap LLC. Code released under the [MIT](https://github.com/StartBootstrap/startbootstrap-modern-business/blob/master/LICENSE) license.
+MIT

@@ -3,14 +3,22 @@
     "name": "startbootstrap-modern-business",
     "version": "5.0.5",
     "scripts": {
-        "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
-        "build:assets": "node scripts/build-assets.js",
-        "build:pug": "node scripts/build-pug.js",
-        "build:scripts": "node scripts/build-scripts.js",
-        "build:scss": "node scripts/build-scss.js",
-        "clean": "node scripts/clean.js",
+        "prebuild": "npm run lint",
+        "lint": "eslint src/**/*.js scripts/**/*.js",
+        "format": "prettier --write .",
+        "fix": "npm run lint -- --fix && npm run format",
+        "test": "npm run build && mocha test/**/*.test.js",
+        "prepare": "echo Preparing project...",
+        "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets && npm run minify:css && npm run minify:js",
         "start": "npm run build && node scripts/start.js",
-        "start:debug": "npm run build && node scripts/start-debug.js"
+        "start:debug": "npm run build && node scripts/start-debug.js",
+        "clean": "node scripts/clean.js",
+        "build:pug": "node scripts/build-pug.js",
+        "build:scss": "node scripts/build-scss.js",
+        "build:scripts": "node scripts/build-scripts.js",
+        "build:assets": "node scripts/build-assets.js",
+        "minify:css": "npx postcss docs/css/styles.css --use cssnano -o docs/css/styles.min.css",
+        "minify:js": "npx terser docs/js/scripts.js -c -m -o docs/js/scripts.min.js"
     },
     "description": "A multipurpose HTML website template built with Bootstrap",
     "keywords": [
@@ -45,11 +53,16 @@
         "browser-sync": "3.0.4",
         "chokidar": "4.0.3",
         "concurrently": "9.1.2",
+        "cssnano": "^7.0.7",
+        "eslint": "^9.26.0",
+        "mocha": "^11.2.2",
         "postcss": "8.5.3",
-        "prettier": "3.5.3",
+        "postcss-cli": "^11.0.1",
+        "prettier": "^3.5.3",
         "pug": "3.0.3",
         "sass": "1.88.0",
         "shelljs": "0.10.0",
+        "terser": "^5.39.1",
         "upath": "2.0.1"
     }
 }

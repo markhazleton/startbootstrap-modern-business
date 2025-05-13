@@ -1,0 +1,15 @@
+extends layouts/layout
+
+block pagehead
+  title Features | Modern Business
+
+block layout-content
+  .container.py-5
+    h2.mb-4.text-center Features
+    .row
+      .col-md-4
+        +feature('star-fill', 'Quality', 'We deliver the best quality products and services.')
+      .col-md-4
+        +feature('lightning-fill', 'Speed', 'Fast and reliable service for all our clients.')
+      .col-md-4
+        +feature('heart-fill', 'Care', 'We care about our customers and their success.')
