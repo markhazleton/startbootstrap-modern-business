@@ -1,11 +1,15 @@
 'use strict';
+const path = require('path');
+const fs = require('fs');
 const upath = require('upath');
-const sh = require('shelljs');
 const renderPug = require('./render-pug');
 
 const srcPath = upath.resolve(upath.dirname(__filename), '../src');
 
-sh.find(srcPath).forEach(_processFile);
+fs.readdirSync(srcPath, { recursive: true, withFileTypes: true })
+    .filter(d => d.isFile())
+    .map(d => upath.normalize(path.join(d.parentPath, d.name)))
+    .forEach(_processFile);
 
 function _processFile(filePath) {
     if (

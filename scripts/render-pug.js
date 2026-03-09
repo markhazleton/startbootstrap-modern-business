@@ -2,7 +2,6 @@
 const fs = require('fs');
 const upath = require('upath');
 const pug = require('pug');
-const sh = require('shelljs');
 const prettier = require('prettier');
 
 module.exports = async function renderPug(filePath) {
@@ -16,10 +15,7 @@ module.exports = async function renderPug(filePath) {
         basedir: srcPath
     });
 
-    const destPathDirname = upath.dirname(destPath);
-    if (!sh.test('-e', destPathDirname)) {
-        sh.mkdir('-p', destPathDirname);
-    }
+    fs.mkdirSync(upath.dirname(destPath), { recursive: true });
 
     const prettified = await prettier.format(html, {
         printWidth: 1000,

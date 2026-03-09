@@ -25,10 +25,3 @@ concurrently(
     }
 );
 
-function success() {
-    console.log('Success');
-}
-
-function failure() {
-    console.log('Failure');
-}

@@ -2,14 +2,13 @@
 const fs = require('fs');
 const packageJSON = require('../package.json');
 const upath = require('upath');
-const sh = require('shelljs');
 
 module.exports = function renderScripts() {
 
     const sourcePath = upath.resolve(upath.dirname(__filename), '../src/js');
-    const destPath = upath.resolve(upath.dirname(__filename), '../docs/.');
+    const destPath = upath.resolve(upath.dirname(__filename), '../docs/js');
 
-    sh.cp('-R', sourcePath, destPath);
+    fs.cpSync(sourcePath, destPath, { recursive: true });
 
     const sourcePathScriptsJS = upath.resolve(upath.dirname(__filename), '../src/js/scripts.js');
     const destPathScriptsJS = upath.resolve(upath.dirname(__filename), '../docs/js/scripts.js');
